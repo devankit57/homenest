@@ -61,7 +61,7 @@ export default function ListingsPage() {
 
           <div className="bg-white/80 backdrop-blur-md border border-gray-300 rounded-3xl shadow-xl p-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
             {/* Location */}
-            <div className="flex items-center bg-white rounded-xl px-4 py-3 w-full sm:w-[48%] lg:w-[30%]">
+            <div className="flex items-center bg-white rounded-xl px-4 py-3 w-full sm:w-[48%] md:w-[45%] lg:w-[30%]">
               <svg className="w-5 h-5 text-[#003B95] mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z" />
               </svg>
@@ -75,7 +75,7 @@ export default function ListingsPage() {
             </div>
 
             {/* Date Picker */}
-            <div className="flex items-center bg-white rounded-xl px-4 py-3 w-full sm:w-[48%] lg:w-[30%]">
+            <div className="flex items-center bg-white rounded-xl px-4 py-3 w-full sm:w-[48%] md:w-[45%] lg:w-[30%]">
               <svg className="w-5 h-5 text-[#003B95] mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M8 7V3m8 4V3m-9 8h10m-13 9h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2z" />
               </svg>
@@ -86,7 +86,7 @@ export default function ListingsPage() {
             </div>
 
             {/* Price Range */}
-            <div className="bg-white rounded-xl px-4 py-3 w-full lg:w-[35%]">
+            <div className="bg-white rounded-xl px-4 py-3 w-full lg:w-[35%] md:w-[45%]">
               <div className="flex justify-between text-sm text-[#003B95] mb-2">
                 <span>₹{minPrice}</span>
                 <span>₹{maxPrice}</span>
