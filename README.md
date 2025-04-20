@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏡 Homenest
 
-## Getting Started
+**Homenest** is a full-stack web application built with **Next.js**, designed to provide a seamless platform for **home sharing and booking**. Whether you're a homeowner looking to rent out space or a traveler in search of budget-friendly stays, Homenest makes it easy, secure, and efficient.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🌐 **Google Authentication** with NextAuth
+- 📋 **List a Home** with title, description, amenities, location, and price
+- 🔍 **Search Listings** by location with real-time suggestions
+- 📆 **Date-based Booking** with `react-datepicker`
+- 💳 **Manual Payment** with QR code and transaction ID confirmation
+- 🧾 **Booking Management** with confirmation and toast notifications
+- 📱 **Responsive Design** for all screen sizes
+- 🔐 **Protected Routes**: Booking only allowed after login
+- 🧑 **User Session Management** via `next-auth`
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+| Frontend      | Backend/API         | Database    | Authentication | UI/UX        |
+|---------------|---------------------|-------------|----------------|--------------|
+| Next.js 14    | Next.js API Routes  | MongoDB     | NextAuth       | Tailwind CSS |
+| React         | RESTful APIs        | Mongoose    | Google OAuth   | React Icons  |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/devankit57/homenest.git
+   cd homenest
+2. **Command**
+   ```bash
+   npm install
