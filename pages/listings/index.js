@@ -52,10 +52,10 @@ export default function ListingsPage() {
       {/* Search Section */}
       <section className="relative bg-[#003B95] text-white py-16 px-4 sm:px-6 lg:px-20">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 tracking-tight leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4 tracking-tight leading-tight">
             Find Your Perfect Stay
           </h1>
-          <p className="text-gray-200 text-base sm:text-lg md:text-xl mb-10">
+          <p className="text-gray-200 text-sm sm:text-base md:text-xl mb-10">
             Search from thousands of homes across the country.
           </p>
 
@@ -86,16 +86,17 @@ export default function ListingsPage() {
             </div>
 
             {/* Price Range */}
-            <div className="bg-white rounded-xl px-4 py-3 w-full lg:w-[35%] md:w-[45%]">
+            <div className="bg-white rounded-xl px-4 py-3 w-full sm:w-[100%] md:w-[45%] lg:w-[35%]">
               <div className="flex justify-between text-sm text-[#003B95] mb-2">
                 <span>₹{minPrice}</span>
                 <span>₹{maxPrice}</span>
               </div>
-              <div className="relative h-2 bg-gray-200 rounded-full">
-                <div className="absolute bg-[#003B95] h-2 rounded-full"
+              <div className="relative h-4 bg-gray-200 rounded-full touch-none">
+                <div
+                  className="absolute bg-[#003B95] h-4 rounded-full"
                   style={{
                     left: `${(minPrice / 100000) * 100}%`,
-                    width: `${((maxPrice - minPrice) / 100000) * 100}%`
+                    width: `${((maxPrice - minPrice) / 100000) * 100}%`,
                   }}
                 />
                 <input
@@ -140,12 +141,10 @@ export default function ListingsPage() {
                     <img
                       src={home.image}
                       alt={home.title}
-                      className="w-full h-60 object-cover"
+                      className="w-full h-48 sm:h-60 object-cover"
                     />
                     <div className="p-6">
-                      <h2 className="text-xl font-semibold text-[#003B95]">
-                        {home.title}
-                      </h2>
+                      <h2 className="text-xl font-semibold text-[#003B95]">{home.title}</h2>
                       <p className="text-gray-600">{home.location}</p>
                       <p className="text-lg font-medium text-blue-600 mt-2">
                         ₹{home.price.toLocaleString()}/night
