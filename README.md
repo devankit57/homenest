@@ -40,9 +40,7 @@
    ```bash
    npm run dev
 
-## 📁 Project Structure 
 
-<pre lang="markdown"> ## 📁 Project Structure The project is structured as follows: ``` Homenest/ ├── components/ │ └── (Your React components) ├── node_modules/ ├── pages/ │ ├── api/ │ │ ├── auth/ │ │ │ └── error.js │ │ ├── bookings/ │ │ │ └── index.js │ │ └── listings/ │ │ ├── add-listings.js │ │ ├── edit-listings.js │ │ ├── fetch-booking.js │ │ └── fetch-listings.js │ ├── bookings/ │ │ └── index.js │ ├── listings/ │ │ ├── [listingId].js │ │ └── index.js │ ├── login/ │ │ └── index.js │ ├── my-listings/ │ │ └── index.js │ ├── _app.js │ └── index.js ├── public/ │ └── (Images like payment.png, login-bg.png, google.webp, etc.) ├── styles/ │ └── (Global CSS files if any) ├── utils/ │ └── (Utility functions or helpers) ├── .env.local ├── .gitignore ├── package.json ├── next.config.js └── README.md ``` </pre>
 
 ## 🖼️ Screenshot
 
