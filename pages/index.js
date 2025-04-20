@@ -1,24 +1,45 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Home, CalendarDays, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer'; 
+import Footer from '../components/Footer';
+import Preloader from '../components/Preloader';
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
+
+    const loadAssets = async () => {
+      // Simulate a delay and ensure session & assets like video load
+      const video = document.querySelector('video');
+      if (video) {
+        await new Promise((res) => {
+          video.oncanplaythrough = res;
+        });
+      }
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000); // Optional artificial delay
+    };
+
+    loadAssets();
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-white to-blue-50 text-gray-800 relative">
@@ -51,12 +72,19 @@ export default function HomePage() {
               Share your space, or book the perfect getaway with a trusted platform designed for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => router.push('/login')}
-                className="bg-[#003B95] hover:bg-blue-800 text-white px-6 py-3 rounded-full text-lg font-semibold transition transform hover:scale-105"
-              >
-                Login
-              </button>
+              {session?.user ? (
+                <span className="bg-[#003B95] text-white px-6 py-3 rounded-full text-lg font-semibold transition transform cursor-default">
+                   Hi, {session.user.name}
+                </span>
+              ) : (
+                <button
+                  onClick={() => router.push('/login')}
+                  className="bg-[#003B95] hover:bg-blue-800 text-white px-6 py-3 rounded-full text-lg font-semibold transition transform hover:scale-105"
+                >
+                  Login
+                </button>
+              )}
+
               <button
                 onClick={() => router.push('/listings')}
                 className="bg-white hover:bg-gray-100 text-[#003B95] border border-[#003B95] px-6 py-3 rounded-full text-lg font-semibold transition transform hover:scale-105"
@@ -114,23 +142,19 @@ export default function HomePage() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {[
-            {
-              title: 'List Your Home',
-              desc: "Earn while you're away. Share your space with travelers worldwide.",
-              icon: <Home className="w-8 h-8" />,
-            },
-            {
-              title: 'Book with Confidence',
-              desc: 'Browse availability, read reviews, and book with peace of mind.',
-              icon: <CalendarDays className="w-8 h-8" />,
-            },
-            {
-              title: 'Safety First',
-              desc: 'We prioritize your safety with secure booking and user verification.',
-              icon: <ShieldCheck className="w-8 h-8" />,
-            },
-          ].map(({ title, desc, icon }, i) => (
+          {[{
+            title: 'List Your Home',
+            desc: "Earn while you're away. Share your space with travelers worldwide.",
+            icon: <Home className="w-8 h-8" />
+          }, {
+            title: 'Book with Confidence',
+            desc: 'Browse availability, read reviews, and book with peace of mind.',
+            icon: <CalendarDays className="w-8 h-8" />
+          }, {
+            title: 'Safety First',
+            desc: 'We prioritize your safety with secure booking and user verification.',
+            icon: <ShieldCheck className="w-8 h-8" />
+          }].map(({ title, desc, icon }, i) => (
             <motion.div
               key={title}
               initial={{ opacity: 0, y: 40 }}

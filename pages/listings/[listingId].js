@@ -42,9 +42,7 @@ export default function ListingDetails() {
     fetchListing();
   }, [listingId]);
 
-  if (loading) {
-    return <p className="text-center text-gray-500 mt-20">Loading details...</p>;
-  }
+
 
   if (!listing) {
     return <p className="text-center text-gray-500 mt-20">Listing not found.</p>;
@@ -120,12 +118,22 @@ export default function ListingDetails() {
                 />
               </div>
 
-              <button
-                onClick={() => setShowModal(true)}
-                className="w-full md:w-auto px-6 py-3 bg-[#003B95] hover:bg-blue-800 text-white text-lg rounded-full transition duration-300 ease-in-out shadow-md hover:shadow-lg"
-              >
-                Book Now
-              </button>
+              {!session ? (
+  <button
+    onClick={() => router.push('/login')}
+    className="w-full md:w-auto px-6 py-3 bg-gray-400 hover:bg-gray-500 text-white text-lg rounded-full transition duration-300 ease-in-out shadow-md hover:shadow-lg"
+  >
+    Login First
+  </button>
+) : (
+  <button
+    onClick={() => setShowModal(true)}
+    className="w-full md:w-auto px-6 py-3 bg-[#003B95] hover:bg-blue-800 text-white text-lg rounded-full transition duration-300 ease-in-out shadow-md hover:shadow-lg"
+  >
+    Book Now
+  </button>
+)}
+
             </div>
           </div>
         </div>

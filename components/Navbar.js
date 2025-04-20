@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useSession, signOut } from 'next-auth/react';
-import { Menu, X } from 'lucide-react'; // optional: use any icon set
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -61,9 +61,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {showMenu && (
-        <div
-          className={`md:hidden bg-white shadow-md border-t border-gray-200 px-6 py-4 text-gray-800 space-y-3`}
-        >
+        <div className="md:hidden bg-white shadow-md border-t border-gray-200 px-6 py-4 text-gray-800 space-y-3">
           <NavbarLinks session={session} status={status} isMobile />
         </div>
       )}
@@ -73,7 +71,9 @@ const Navbar = () => {
 
 const NavbarLinks = ({ session, status, isMobile = false }) => {
   const linkClass = `block ${
-    isMobile ? 'w-full py-2 px-3 rounded hover:bg-gray-100' : 'px-4 py-2 rounded-full hover:bg-white/20 hover:scale-105'
+    isMobile
+      ? 'w-full py-2 px-3 rounded hover:bg-gray-100'
+      : 'px-4 py-2 rounded-full hover:bg-white/20 hover:scale-105'
   } transition-all duration-200`;
 
   return (
@@ -102,7 +102,14 @@ const NavbarLinks = ({ session, status, isMobile = false }) => {
             />
             <span className={`${isMobile ? '' : 'hidden'}`}>{session.user?.name}</span>
           </div>
-          <button onClick={() => signOut()} className={linkClass}>
+          <button
+            onClick={() => signOut()}
+            className={`${
+              isMobile
+                ? 'w-full py-2 px-3 rounded bg-red-500 hover:bg-red-600 text-white font-semibold'
+                : 'px-4 py-2 rounded-full bg-red-500 hover:bg-red-600 text-white font-semibold hover:scale-105'
+            } transition-all duration-200`}
+          >
             Logout
           </button>
         </>
