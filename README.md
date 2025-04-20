@@ -44,7 +44,7 @@
 
 ## 🖼️ Screenshot
 
-<img src="https://i.ibb.co/WpNwwzkK/img1.png">
+<img src="./img1.png">
 
-<img src="https://i.ibb.co/1Gbrg7Xc/img2.png">
+<img src=".//img2.png">
 
